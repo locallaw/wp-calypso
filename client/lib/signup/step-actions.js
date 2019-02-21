@@ -19,7 +19,6 @@ import SignupCart from 'lib/signup/cart';
 import analytics from 'lib/analytics';
 import { SIGNUP_OPTIONAL_DEPENDENCY_SUGGESTED_USERNAME_SET } from 'state/action-types';
 import { cartItems } from 'lib/cart-values';
-import { isDomainTransfer } from 'lib/products-values';
 import { getDesignType } from 'state/signup/steps/design-type/selectors';
 import { getSiteTitle } from 'state/signup/steps/site-title/selectors';
 import { getSurveyVertical, getSurveySiteType } from 'state/signup/steps/survey/selectors';
@@ -31,7 +30,10 @@ import { getSiteGoals } from 'state/signup/steps/site-goals/selectors';
 import { getSiteStyle } from 'state/signup/steps/site-style/selectors';
 import { getUserExperience } from 'state/signup/steps/user-experience/selectors';
 import { requestSites } from 'state/sites/actions';
-import { supportsPrivacyProtectionPurchase } from 'lib/cart-values/cart-items';
+import {
+	updatePrivacyForDomain,
+	supportsPrivacyProtectionPurchase,
+} from 'lib/cart-values/cart-items';
 import { getProductsList } from 'state/products-list/selectors';
 import { getSelectedImportEngine, getNuxUrlInputValue } from 'state/importer-nux/temp-selectors';
 import { normalizeImportUrl } from 'state/importer-nux/utils';
@@ -42,7 +44,8 @@ const debug = debugFactory( 'calypso:signup:step-actions' );
 
 export function createSiteOrDomain( callback, dependencies, data, reduxStore ) {
 	const { siteId, siteSlug } = data;
-	const { cartItem, designType, domainItem, siteUrl, themeSlugWithRepo } = dependencies;
+	const { cartItem, designType, siteUrl, themeSlugWithRepo } = dependencies;
+	let { domainItem } = dependencies;
 
 	if ( designType === 'domain' ) {
 		const cartKey = 'no-site';
@@ -53,19 +56,15 @@ export function createSiteOrDomain( callback, dependencies, data, reduxStore ) {
 			domainItem,
 		};
 
-		const domainChoiceCart = [ domainItem ];
 		if ( domainItem ) {
 			const { product_slug: productSlug } = domainItem;
 			const productsList = getProductsList( reduxStore.getState() );
 			if ( supportsPrivacyProtectionPurchase( productSlug, productsList ) ) {
-				domainChoiceCart.push(
-					cartItems.domainPrivacyProtection( {
-						domain: domainItem.meta,
-						source: 'signup',
-					} )
-				);
+				domainItem = updatePrivacyForDomain( domainItem, true );
 			}
 		}
+
+		const domainChoiceCart = [ domainItem ];
 
 		SignupCart.createCart( cartKey, domainChoiceCart, error =>
 			callback( error, providedDependencies )
@@ -198,17 +197,7 @@ export function createSiteWithCart(
 				const { product_slug: productSlug } = domainItem;
 				const productsList = getProductsList( state );
 				if ( supportsPrivacyProtectionPurchase( productSlug, productsList ) ) {
-					if ( isDomainTransfer( domainItem ) ) {
-						privacyItem = cartItems.domainTransferPrivacy( {
-							domain: domainItem.meta,
-							source: 'signup',
-						} );
-					} else {
-						privacyItem = cartItems.domainPrivacyProtection( {
-							domain: domainItem.meta,
-							source: 'signup',
-						} );
-					}
+					privacyItem = cartItems.updatePrivacyForDomain( domainItem, true );
 				}
 			}
 
