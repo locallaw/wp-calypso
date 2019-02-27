@@ -413,7 +413,7 @@ textarea {
 		margin-top: 10px;
 		background-color: $white;
 		border: none;
-		border-top: 1px solid $gray-light;
+		border-top: 1px solid var( --color-neutral-0 );
 
 		.footer-inner {
 			padding-bottom: 10px;
@@ -531,7 +531,7 @@ div[ng-show='busyIndicator'] {
 }
 
 .ui-select-choices-row:hover {
-	background-color: $gray-light;
+	background-color: var( --color-neutral-0 );
 }
 
 /* Bootstrap theme */
