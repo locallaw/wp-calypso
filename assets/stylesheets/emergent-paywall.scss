@@ -103,7 +103,7 @@ textarea {
 			flex: 1 0 40%;
 			box-sizing: border-box;
 			border-radius: 5px;
-			border: 1px solid $gray;
+			border: 1px solid var( --color-neutral-light );
 			margin: 10px;
 
 			.btn-tile {
@@ -397,7 +397,7 @@ textarea {
 	}
 
 	.content-alerts .alert {
-		border: 1px solid lighten( $gray, 25% );
+		border: 1px solid var( --color-neutral-50 );
 		font-size: 14px;
 		margin-right: 0;
 		border-radius: 8px;
