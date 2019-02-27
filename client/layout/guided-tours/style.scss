@@ -125,7 +125,7 @@
 		min-width: 48%;
 	}
 	.guided-tours__quit-button {
-		color: darken( var( --color-white ), 20% );
+		color: var( --color-neutral-100 );
 		background: none;
 		border: 1px rgba( var( --color-white-rgb ), 0.2 ) solid;
 	}
