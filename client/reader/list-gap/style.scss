@@ -51,6 +51,6 @@
 	z-index: z-index( 'root', '.reader-list-gap__button' );
 
 	&:hover {
-		color: rgba( $white, 0.8 );
+		color: rgba( var( --color-white-rgb ), 0.8 );
 	}
 }

@@ -79,7 +79,7 @@
 .post-editor,
 .mce-inline-toolbar-grp {
 	div.mce-toolbar-grp {
-		background-color: rgba( $white, 0.92 );
+		background-color: rgba( var( --color-white-rgb ), 0.92 );
 		border-color: lighten( $gray, 25% );
 		border-style: solid;
 		border-left-width: 1px;

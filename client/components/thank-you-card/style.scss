@@ -158,7 +158,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	color: rgba( $white, 0.4 );
+	color: rgba( var( --color-white-rgb ), 0.4 );
 
 	.gridicon {
 		position: absolute;
