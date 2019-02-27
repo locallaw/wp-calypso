@@ -40,7 +40,7 @@
 .web-preview__content {
 	display: flex;
 	flex-direction: column;
-	box-shadow: 0 0 0 1px rgba( $gray, 0.5 );
+	box-shadow: 0 0 0 1px rgba( var( --color-neutral-light-rgb ), 0.5 );
 	background: var( --color-neutral-0 );
 	border-radius: 4px 4px 0 0;
 	position: absolute;
