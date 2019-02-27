@@ -87,7 +87,7 @@
 			overflow: hidden;
 
 			&::after {
-				background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ) 0%, $white 90% );
+				background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ) 0%, var( --color-white ) 90% );
 				position: absolute;
 				z-index: 1;
 				right: 0;
