@@ -25,7 +25,7 @@
 	}
 
 	&.is-added {
-		background-color: lighten( $gray, 35% );
+		background-color: var( --color-neutral-0 );
 
 		.domain-suggestion__content {
 			h3,

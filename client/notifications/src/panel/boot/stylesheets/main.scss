@@ -364,7 +364,7 @@
 			position: absolute;
 			bottom: -5px;
 			right: -8px;
-			background-color: lighten( $gray, 5% );
+			background-color: var( --color-neutral-200 );
 			border-color: var( --color-white );
 		}
 
