@@ -59,7 +59,7 @@ textarea {
 	width: 100%;
 	min-height: 100px;
 	border: none;
-	background-color: $white;
+	background-color: var( --color-white );
 
 	.header {
 		display: none;
@@ -267,7 +267,7 @@ textarea {
 					font-size: 16px;
 					line-height: 1.5;
 					border: 1px solid $gray-lighten-20;
-					background-color: $white;
+					background-color: var( --color-white );
 					transition: all 150ms ease-in-out;
 					box-sizing: border-box;
 
@@ -341,7 +341,7 @@ textarea {
 		button.btn-block,
 		div[simple-template='link-password'] a.text-capitalize {
 			text-transform: capitalize;
-			background: $white;
+			background: var( --color-white );
 			border-color: $gray-lighten-20;
 			border-style: solid;
 			border-width: 1px 1px 2px;
@@ -369,7 +369,7 @@ textarea {
 			&.btn-primary {
 				background: var( --color-primary );
 				border-color: darken( $blue-medium, 8% );
-				color: $white;
+				color: var( --color-white );
 
 				&:hover {
 					border-color: $blue-dark;
@@ -403,15 +403,15 @@ textarea {
 		border-radius: 8px;
 		background: var( --color-warning );
 		border-color: transparent;
-		color: $white;
+		color: var( --color-white );
 		a {
-			color: $white;
+			color: var( --color-white );
 		}
 	}
 
 	.footer {
 		margin-top: 10px;
-		background-color: $white;
+		background-color: var( --color-white );
 		border: none;
 		border-top: 1px solid $gray-light;
 
@@ -592,7 +592,7 @@ div[ng-show='busyIndicator'] {
 	max-height: 200px;
 	overflow-x: hidden;
 	margin-top: -1px;
-	background: $white;
+	background: var( --color-white );
 	position: relative !important;
 	top: 0 !important;
 	border: 1px solid $gray-lighten-20;
